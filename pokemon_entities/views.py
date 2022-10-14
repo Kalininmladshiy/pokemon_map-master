@@ -1,7 +1,6 @@
 import folium
 import django
 
-from django.http import HttpResponseNotFound
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from pokemon_entities.models import Pokemon, PokemonEntity
@@ -46,16 +45,20 @@ def show_all_pokemons(request):
     for pokemon in pokemons:
         try:
             url = pokemon.photo.url
-            pokemons_on_page.append({
-                'pokemon_id': pokemon.id,
-                'img_url': request.build_absolute_uri(url),
-                'title_ru': pokemon.title,
-            })
+            pokemons_on_page.append(
+                {
+                    'pokemon_id': pokemon.id,
+                    'img_url': request.build_absolute_uri(url),
+                    'title_ru': pokemon.title,
+                }
+            )
         except ValueError:
-            pokemons_on_page.append({
-            'pokemon_id': pokemon.id,
-            'title_ru': pokemon.title,
-            })
+            pokemons_on_page.append(
+                {
+                    'pokemon_id': pokemon.id,
+                    'title_ru': pokemon.title,
+                }
+            )
 
     return render(request, 'mainpage.html', context={
         'map': folium_map._repr_html_(),
