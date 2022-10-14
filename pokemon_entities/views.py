@@ -65,11 +65,7 @@ def show_all_pokemons(request):
 
 def show_pokemon(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, id=int(pokemon_id))
-    pokemon_entity = PokemonEntity.objects.filter(
-        pokemon__id=int(pokemon_id),
-        appeared_at__lte=django.utils.timezone.localtime(),
-        disappeared_at__gte=django.utils.timezone.localtime(),
-     )
+    pokemon_entity = pokemon.entity.all()
     next_evolution = {}
     previous_evolution = {}
     if pokemon.children.all():
