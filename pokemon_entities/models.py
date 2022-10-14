@@ -33,13 +33,11 @@ class PokemonEntity(models.Model):
         verbose_name='когда появился',
         null=True,
         blank=True,        
-        default=django.utils.timezone.now(),
      )
     disappeared_at = models.DateTimeField(
         verbose_name='когда пропал',
         null=True,
         blank=True,        
-        default=django.utils.timezone.now(),
      )
     level = models.IntegerField(verbose_name='уровень', default=1)
     health = models.IntegerField(verbose_name='здоровье', default=1)
