@@ -50,8 +50,8 @@ class PokemonEntity(models.Model):
         null=True,
         blank=True,
      )
-    level = models.IntegerField(verbose_name='уровень', default=1)
-    health = models.IntegerField(verbose_name='здоровье', default=1)
-    strength = models.IntegerField(verbose_name='сила', default=1)
-    defence = models.IntegerField(verbose_name='защита', default=1)
-    stamina = models.IntegerField(verbose_name='выносливость', default=1)
+    level = models.IntegerField(verbose_name='уровень', null=True, blank=True)
+    health = models.IntegerField(verbose_name='здоровье', null=True, blank=True)
+    strength = models.IntegerField(verbose_name='сила', null=True, blank=True)
+    defence = models.IntegerField(verbose_name='защита', null=True, blank=True)
+    stamina = models.IntegerField(verbose_name='выносливость', null=True, blank=True)
