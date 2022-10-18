@@ -61,7 +61,7 @@ def show_all_pokemons(request):
 
 def show_pokemon(request, pokemon_id):
     pokemon = get_object_or_404(Pokemon, id=int(pokemon_id))
-    pokemon_entity = pokemon.entity.all()
+    pokemon_entity = pokemon.entities.all()
     next_evolution = {}
     previous_evolution = {}
     if pokemon.children.all():
